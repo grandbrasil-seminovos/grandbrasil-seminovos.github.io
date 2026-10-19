@@ -125,6 +125,7 @@ h1 span{display:block;color:var(--accent);font-weight:700;font-size:clamp(15px,2
 .consultor{margin:12px 0 10px;display:flex;flex-direction:column;line-height:1.25}
 .consultor b{font-size:17px;font-weight:700;color:#fff}
 .consultor em{font-style:normal;font-size:13px;color:var(--muted)}
+.fipe .web{display:inline-block;margin-top:4px;font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -219,7 +220,7 @@ function render(){
         <div class="foot">
           <div class="money">
             <div class="price"><small>Valor repasse</small><b>${c.price!=null?brl(c.price):"Consulte"}</b></div>
-            ${c.fipe?`<div class="fipe">FIPE ${brl(c.fipe)}${o!=null&&o>0?`<br><span class="pct">${o}% abaixo</span>`:""}</div>`:""}
+            ${c.fipe?`<div class="fipe">FIPE ${brl(c.fipe)}${o!=null&&o>0?`<br><span class="pct">${o}% abaixo</span>`:""}${c.web?`<br><span class="web">Menor na web ${brl(c.web.p)}${c.web.km?` · ${kmf(c.web.km)}`:""}</span>`:""}</div>`:""}
           </div>
           <div class="actions">
             <a class="btn btn-y" href="${wa(`Olá Maycom! Tenho interesse no repasse: ${ref}${c.price!=null?" ("+brl(c.price)+")":""}.`)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Tenho interesse</a>
