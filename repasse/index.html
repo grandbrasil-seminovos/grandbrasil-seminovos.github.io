@@ -205,11 +205,10 @@ function anuncio(c){
   const modelo=t.slice(0,i).join(" "), versao=t.slice(i).join(" ");
   const extra=c.name.includes(" · ")?c.name.split(" · ").slice(1).join(", "):"";
   const ano1=(c.year||"").split("/")[0];
-  const L=[`*${(c.brand+" "+modelo).toUpperCase()}*`];
+  const L=c.blind?["*BLINDADO*",`*${(c.brand+" "+modelo).toUpperCase()}*`]:[`*${(c.brand+" "+modelo).toUpperCase()}*`];
   if(versao)L.push(versao);
   L.push("",`Ano: ${c.year}`,`KM: ${c.km.toLocaleString("pt-BR")}`);
   if(c.cor)L.push(`Cor: ${c.cor}`);
-  if(c.blind)L.push("Blindado");
   if(extra)L.push(extra);
   L.push("");
   L.push(c.price!=null?`*Valor: ${brl(c.price)}*`:"*Valor: consulte*");
