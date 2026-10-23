@@ -33,8 +33,9 @@ h1{font-weight:800;text-transform:uppercase;font-size:clamp(28px,5.4vw,52px);lin
 .btn-y:hover{filter:brightness(.95)}
 .btn-o{background:transparent;color:var(--ink);border-color:var(--line);text-transform:none;letter-spacing:0;font-weight:600}
 .btn:focus-visible,.chip:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.top-cta{margin-top:18px;display:grid;grid-template-columns:repeat(2,max-content);gap:10px}
+.top-cta{margin-top:18px;display:grid;grid-template-columns:repeat(3,max-content);gap:10px}
 .top-cta .btn{text-transform:uppercase;letter-spacing:.03em;font-weight:700}
+@media (max-width:640px){.top-cta{grid-template-columns:1fr 1fr}.top-cta .btn-com{grid-column:1/-1}.top-cta .btn-com .l{display:inline!important}}
 @media (max-width:520px){.top-cta{grid-template-columns:1fr 1fr}.top-cta .l{display:none}.top-cta .btn{padding:13px 10px}}
 main{padding-block:22px 48px}
 .controls{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
@@ -79,6 +80,7 @@ select{background:var(--surface);color:var(--ink);border:1px solid var(--line);b
 .follow h2{font-weight:800;text-transform:uppercase;font-size:clamp(20px,5vw,26px);line-height:1.05;margin:0 0 4px}
 .follow p{margin:0;color:var(--muted)}
 .btn-ig{background:#c13584;color:#fff}
+.btn-com{background:#128c4a;color:#fff;border-color:#128c4a}
 @media (max-width:640px){.follow{grid-template-columns:1fr}.follow .ring{display:none}}
 .card.blind{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
 .badge{font-size:14px;padding:7px 12px;top:12px;left:12px}
@@ -137,6 +139,7 @@ h1 span{display:block;color:var(--accent);font-weight:700;font-size:clamp(15px,2
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="i-com" viewBox="0 0 24 24"><path fill="currentColor" d="M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm0 2c-3.3 0-7 1.6-7 4v2h14v-2c0-2.4-3.7-4-7-4Zm7.5-2a3 3 0 1 0-1.4-5.7A5.4 5.4 0 0 1 16 8.5a5.4 5.4 0 0 1-.9 2.2c.4.2.9.3 1.4.3Zm1.3 2.1c1.3.8 2.2 2 2.2 3.4v2.5h3v-2c0-2-2.5-3.5-5.2-3.9Z"/></symbol>
   <symbol id="i-cam" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21.9 8c-.1-1.6-.4-3-1.6-4.2C19.1 2.6 17.6 2.2 16 2.1c-1.6-.1-6.4-.1-8 0-1.6.1-3 .4-4.2 1.6C2.6 4.9 2.2 6.4 2.1 8c-.1 1.6-.1 6.4 0 8 .1 1.6.4 3 1.6 4.2 1.2 1.2 2.6 1.6 4.2 1.6 1.6.1 6.4.1 8 0 1.6-.1 3-.4 4.2-1.6 1.2-1.2 1.6-2.6 1.6-4.2.1-1.6.1-6.4 0-8Zm-2.1 9.7a3.2 3.2 0 0 1-1.8 1.8c-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4a3.2 3.2 0 0 1-1.8-1.8c-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.7a3.2 3.2 0 0 1 1.8-1.8c1.3-.5 4.3-.4 5.7-.4s4.4-.1 5.7.4a3.2 3.2 0 0 1 1.8 1.8c.5 1.3.4 4.3.4 5.7s.1 4.4-.4 5.7Z"/></symbol>
 </svg>
@@ -148,7 +151,7 @@ h1 span{display:block;color:var(--accent);font-weight:700;font-size:clamp(15px,2
     <div class="consultor"><b>Maycom Rebolo</b><em>Gerente de Seminovos</em></div>
     <p class="sub">Valores para lojista, sujeitos a confirmação. Chame no WhatsApp para fotos, laudo e fechamento.</p>
     <div class="meta" id="meta"></div>
-    <div class="top-cta"><a class="btn btn-y" id="wa-top" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span><span class="l">Chamar no </span>WhatsApp</span></a><a class="btn btn-ig" href="https://www.instagram.com/grandbrasil_maycomrebolo_/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg><span><span class="l">Seguir no </span>Instagram</span></a></div>
+    <div class="top-cta"><a class="btn btn-y" id="wa-top" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span><span class="l">Chamar no </span>WhatsApp</span></a><a class="btn btn-ig" href="https://www.instagram.com/grandbrasil_maycomrebolo_/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg><span><span class="l">Seguir no </span>Instagram</span></a><a class="btn btn-com" href="https://chat.whatsapp.com/HL3GVCiySR0C8NbcQCeiy2" target="_blank" rel="noopener"><svg><use href="#i-com"/></svg><span><span class="l">Entrar na </span>Comunidade</span></a></div>
   </div>
 </header>
 
