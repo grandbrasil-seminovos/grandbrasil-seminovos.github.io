@@ -92,6 +92,9 @@ select{font:500 14px var(--body);padding:8px 10px;border-radius:10px;border:1px 
 .price{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
 .price small{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
 .actions{display:grid;grid-template-columns:1fr auto;gap:8px}
+.btn-disp{grid-column:1/-1;background:#128c4a;color:#fff;border-color:#128c4a;cursor:pointer;font:inherit;font-weight:700}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);opacity:0;background:#111;color:#fff;border:1px solid #333;padding:12px 16px;border-radius:10px;font-size:14px;z-index:99;transition:.25s;max-width:calc(100% - 32px)}
+#toast.show{opacity:1;transform:translate(-50%,0)}
 
 /* Instagram */
 .follow{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center}
@@ -245,6 +248,43 @@ footer .inner{display:grid;gap:6px;border-top:1px solid var(--line);padding-top:
 let CARS=[];
 try{const t=await (await fetch("https://maycomrebolo.github.io/?v="+Date.now(),{cache:"no-store"})).text();const m=t.match(/const CARS = (\[[\s\S]*?\n\]);/);CARS=(0,eval)(m[1]);CARS.forEach(c=>c.ig="");}catch(e){document.getElementById("grid").innerHTML='<p class="empty">Não foi possível carregar o estoque. Recarregue a página.</p>';return}
 const PHONE="5511977241690";
+const DISP=(()=>{try{return new URLSearchParams(location.search).get("disparo")==="gb7426"}catch(_){return false}})();
+function limpo(){try{const u=new URL(location.href);u.searchParams.delete("disparo");u.searchParams.delete("busca");return u.origin+u.pathname}catch(_){return location.href}}
+function fone(){const d=PHONE.replace(/^55/,"");return `${d.slice(0,2)} ${d.slice(2,-4)}-${d.slice(-4)}`}
+function anuncio(c){
+  const t=c.name.split(/\s+/);let i=t.findIndex(w=>/\d/.test(w));if(i<0)i=t.length;if(i===0)i=1;
+  const modelo=t.slice(0,i).join(" "),versao=t.slice(i).join(" ");
+  const ano1=(c.year||"").split("/")[0];
+  const bl=/^blindad/i.test(c.tag||"");
+  const L=[];
+  if(bl)L.push(`*${c.tag.toUpperCase()}*`);
+  L.push(`*${(c.brand+" "+modelo).toUpperCase().replace(/(\d)I\b/g,"$1i")}*`);
+  if(versao)L.push(versao);
+  L.push("",`Ano: ${c.year}`,`KM: ${c.km.toLocaleString("pt-BR")}`);
+  const PK=c.bmw?["Garantia BMW Premium Selection","Taxa 0%","IPVA pago","Aceita troca"]:["Revisado e com garantia","Laudo cautelar aprovado","Aceita troca"];
+  (c.specs||[]).filter(x=>!c.noperks?!PK.some(k=>k.toLowerCase()===x.toLowerCase()):true).forEach(x=>L.push(x));
+  if(c.tag&&!bl)L.push(c.tag);
+  if(!c.noperks){L.push("");PK.forEach(x=>L.push(x))}
+  L.push("",`*Valor: ${brl(c.price)}*`,"");
+  const nome=(document.getElementById("v-nome")||{}).textContent||"",cargo=(document.getElementById("v-cargo")||{}).textContent||"";
+  L.push(`${nome}${cargo?" – "+cargo:""}`,"Grand Brasil Seminovos",fone());
+  if(/instagram\.com\/(p|reel)\//.test(c.ig||""))L.push("","Fotos e vídeo:",c.ig);
+  L.push("","Veja este e outros seminovos:",limpo()+"?busca="+encodeURIComponent((modelo+" "+ano1).toLowerCase()));
+  return L.join("\n");
+}
+function aviso(m){let t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";document.body.appendChild(t)}t.textContent=m;t.className="show";clearTimeout(t._h);t._h=setTimeout(()=>t.className="",2600)}
+async function disparar(id){
+  const c=CARS.find(x=>x.id===id);if(!c)return;const txt=anuncio(c);
+  try{await navigator.clipboard.writeText(txt)}catch(_){}
+  let file=null;
+  try{const b=await (await fetch(c.img)).blob();file=new File([b],`${c.brand}-${c.name}-${c.year}.jpg`.replace(/[\s\/]+/g,"-"),{type:"image/jpeg"})}catch(_){}
+  if(file&&navigator.canShare&&navigator.canShare({files:[file]})){
+    try{await navigator.share({files:[file],text:txt});return}catch(e){if(e&&e.name==="AbortError")return}
+  }
+  if(file){const a=document.createElement("a");a.href=URL.createObjectURL(file);a.download=file.name;document.body.appendChild(a);a.click();a.remove()}
+  aviso(file?"Texto copiado e foto baixada. Cole o texto junto da foto no WhatsApp.":"Texto copiado.");
+  window.open("https://wa.me/?text="+encodeURIComponent(txt),"_blank","noopener");
+}
 const brl=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
 const kmf=n=>n.toLocaleString("pt-BR")+" km";
 let marca="Todas", ordem="desc", blind="", faixa="";
@@ -267,7 +307,7 @@ const norm=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLo
 const okQ=c=>{if(!q)return true;const F=[c.brand,c.name,c.year,...(c.specs||[]),c.tag||"",c.blind||""].map(norm);const hay=F.join(" | ");const hz=F.map(x=>x.replace(/[\s.\-]/g,"")).join("|");return q.split(/\s+/).every(t=>hay.includes(t)||hz.includes(t.replace(/[.\-]/g,"")))};
 const qEl=document.getElementById("q"), shareEl=document.getElementById("q-share");
 function syncQ(){const raw=qEl.value.trim();q=norm(raw);try{const u=new URL(location.href);raw?u.searchParams.set("busca",raw):u.searchParams.delete("busca");history.replaceState(null,"",u)}catch(_){}
-  if(raw){const n=CARS.filter(c=>okQ(c)).length;shareEl.hidden=false;shareEl.href="https://wa.me/?text="+encodeURIComponent(`Separei ${n===1?"esta opção":"estas "+n+" opções"} de ${raw} para você:\n`+location.href)}else shareEl.hidden=true}
+  if(raw){const n=CARS.filter(c=>okQ(c)).length;shareEl.hidden=false;shareEl.href="https://wa.me/?text="+encodeURIComponent(`Separei ${n===1?"esta opção":"estas "+n+" opções"} de ${raw} para você:\n`+(()=>{try{const u=new URL(location.href);u.searchParams.delete("disparo");return u.href}catch(_){return location.href}})())}else shareEl.hidden=true}
 qEl.addEventListener("input",()=>{syncQ();render()});
 try{const b=new URLSearchParams(location.search).get("busca");if(b){qEl.value=b;syncQ()}}catch(_){}
 const plural=n=>n+(n===1?" carro":" carros");
@@ -312,11 +352,13 @@ function render(){
           <div class="actions">
             <a class="btn btn-wa" href="https://wa.me/${PHONE}?text=${msg}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Quero esse</a>
             ${/instagram\.com\/p\//.test(c.ig)?`<a class="btn btn-line" href="${c.ig}" target="_blank" rel="noopener" aria-label="Ver fotos no Instagram"><svg><use href="#i-ig"/></svg>Fotos</a>`:`<a class="btn btn-line" href="https://wa.me/${PHONE}?text=${encodeURIComponent(`Olá Rodrigo! Pode me mandar fotos e vídeo do ${c.brand} ${c.name} ${c.year}?`)}" target="_blank" rel="noopener" aria-label="Pedir fotos pelo WhatsApp"><svg><use href="#i-wa"/></svg>Pedir fotos</a>`}
+            ${DISP?`<button class="btn btn-disp" type="button" data-disp="${c.id}">Disparar anúncio</button>`:""}
           </div>
         </div>
       </div></article>`;
   }).join("")||`<p class="empty">Nenhum carro com esses filtros agora. <a href="https://wa.me/${PHONE}?text=${encodeURIComponent("Olá Rodrigo! Procuro um carro que não achei no catálogo: ")}" target="_blank" rel="noopener">Me fala o que você procura</a> que eu busco pra você.</p>`;
 }
+document.getElementById("grid").addEventListener("click",e=>{const b=e.target.closest("[data-disp]");if(b){e.preventDefault();disparar(b.dataset.disp)}});
 sel.onchange=e=>{ordem=e.target.value;try{localStorage.setItem("ordem",ordem)}catch(_){};render()};
 document.getElementById("copiar").onclick=async e=>{
   const b=e.currentTarget;
