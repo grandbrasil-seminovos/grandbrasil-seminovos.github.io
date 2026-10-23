@@ -241,8 +241,8 @@ function render(){
             ${c.fipe?`<div class="fipe">FIPE ${brl(c.fipe)}${o!=null&&o>0?`<br><span class="pct">${o}% abaixo</span>`:""}${c.web?`<br><span class="web">Menor na web ${brl(c.web.p)}${c.web.km?` · ${kmf(c.web.km)}`:""}</span>`:""}</div>`:""}
           </div>
           <div class="actions">
-            <a class="btn btn-y" href="${wa(`Olá Maycom! Tenho interesse no repasse: ${ref}${c.price!=null?" ("+brl(c.price)+")":""}.`)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Tenho interesse</a>
-            <a class="btn btn-o" href="${wa(`Olá Maycom! Pode me mandar fotos e o laudo do repasse: ${ref}?`)}" target="_blank" rel="noopener" aria-label="Pedir fotos e laudo"><svg><use href="#i-wa"/></svg>Pedir fotos</a>
+            <a class="btn btn-y" href="${wa(`Olá Maycom! Tenho interesse no repasse: ${ref}${c.price!=null?" ("+brl(c.price)+")":""}. Placa ${c.id}.`)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Tenho interesse</a>
+            <a class="btn btn-o" href="${wa(`Olá Maycom! Pode me mandar fotos e o laudo do repasse: ${ref} (placa ${c.id})?`)}" target="_blank" rel="noopener" aria-label="Pedir fotos e laudo"><svg><use href="#i-wa"/></svg>Pedir fotos</a>
           </div>
         </div>
       </div></article>`;
