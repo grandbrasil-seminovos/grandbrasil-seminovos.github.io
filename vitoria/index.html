@@ -245,6 +245,7 @@ const DISP=(()=>{try{return new URLSearchParams(location.search).get("disparo")=
 if(DISP&&PHONE==="5511991198915"){const h=document.querySelector("h1");if(h){const n=document.createElement("nav");n.className="mr-nav";n.setAttribute("aria-label","Disparo");n.innerHTML='<a class="on" href="https://grandbrasil-seminovos.github.io/maycomrebolo/?disparo=gb7426">Seminovos</a><a class="" href="https://grandbrasil-seminovos.github.io/repasse/?disparo=gb7426">Repasse</a>';h.parentNode.insertBefore(n,h)}}
 function limpo(){try{const u=new URL(location.href);u.searchParams.delete("disparo");u.searchParams.delete("busca");return u.origin+u.pathname}catch(_){return location.href}}
 function fone(){const d=PHONE.replace(/^55/,"");return `${d.slice(0,2)} ${d.slice(2,-4)}-${d.slice(-4)}`}
+function ep(p){return {e:Math.round(p*.5),m:Math.round(p*.0107/10)*10,f:Math.round(p*.4)}}
 function anuncio(c){
   const t=c.name.split(/\s+/);let i=t.findIndex(w=>/\d/.test(w));if(i<0)i=t.length;if(i===0)i=1;
   const modelo=t.slice(0,i).join(" "),versao=t.slice(i).join(" ");
@@ -255,11 +256,13 @@ function anuncio(c){
   L.push(`*${(c.brand+" "+modelo).toUpperCase().replace(/(\d)I\b/g,"$1i")}*`);
   if(versao)L.push(versao);
   L.push("",`Ano: ${c.year}`,`KM: ${c.km.toLocaleString("pt-BR")}`);
-  const PK=c.bmw?["Garantia BMW Premium Selection","Taxa 0%","IPVA pago","Aceita troca"]:["Revisado e com garantia","Laudo cautelar aprovado","Aceita troca"];
+  const PK=c.bmw?["Garantia BMW Premium Selection 2 anos","Taxa a partir de 0%","Aceita troca"]:["Revisado e com garantia","Laudo cautelar aprovado","Aceita troca"];
   (c.specs||[]).filter(x=>!c.noperks?!PK.some(k=>k.toLowerCase()===x.toLowerCase()):true).forEach(x=>L.push(x));
   if(c.tag&&!bl)L.push(c.tag);
   if(!c.noperks){L.push("");PK.forEach(x=>L.push(x))}
+  if(c.bmw){const s=ep(c.price);L.push(`Easy Plan: entrada ${brl(s.e)} + 24x de ${brl(s.m)} + parcela final ${brl(s.f)}*`)}
   L.push("",`*Valor: ${brl(c.price)}*`,"");
+  if(c.bmw)L.push("*Simulação Easy Plan BMW Premium Selection, válida até 30/11/2026, sujeita à aprovação de crédito.","");
   const nome=(document.getElementById("v-nome")||{}).textContent||"",cargo=(document.getElementById("v-cargo")||{}).textContent||"";
   L.push(`${nome}${cargo?" – "+cargo:""}`,"Grand Brasil Seminovos",fone());
   if(/instagram\.com\/(p|reel)\//.test(c.ig||""))L.push("","Fotos e vídeo:",c.ig);
