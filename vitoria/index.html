@@ -194,7 +194,7 @@ footer .inner{display:grid;gap:6px;border-top:1px solid var(--line);padding-top:
   </div>
 </section>
 
-<div class="deal pad"><div class="inner"><strong>Linha BMW</strong><span>Garantia Premium Selection 2 anos · taxa a partir de 0% · IPVA 2026 pago · revisões na concessionária · válido até 31/10/2026</span></div></div>
+<div class="deal pad"><div class="inner"><strong>Linha BMW</strong><span>Garantia Premium Selection 2 anos · taxa a partir de 0% · Easy Plan com parcelas reduzidas · válido até 30/11/2026</span></div></div>
 
 <main class="pad">
   <div class="inner">
@@ -351,7 +351,7 @@ function render(){
         <div class="top"><span class="brand">${c.brand}</span><span class="meta">${c.year} · ${kmf(c.km)}</span></div>
         <h2 class="name">${c.name}</h2>
         <ul class="specs">${c.specs.map(s=>`<li>${s}</li>`).join("")}</ul>
-        <p class="perks">${c.noperks?"":c.bmw?"Garantia Premium Selection · Taxa 0% · IPVA pago · Aceita troca":"Revisado · Laudo aprovado · Aceita troca"}</p>
+        <p class="perks">${c.noperks?"":c.bmw?"Garantia Premium Selection · Taxa a partir de 0% · Easy Plan · Aceita troca":"Revisado · Laudo aprovado · Aceita troca"}</p>
         <div class="foot">
           <div class="price"><small>Valor</small>${brl(c.price)}</div>
           <div class="actions">
