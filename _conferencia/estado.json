@@ -1,5 +1,9 @@
 {
- "manter": ["rrp550","i320cz25","hrv"],
+ "manter": [
+  "rrp550",
+  "i320cz25",
+  "hrv"
+ ],
  "ignorar_anuncios": [
   "/seminovos/bmw-x1-2-0-16v-turbo-gasolina-sdrive20i-m-sport-steptronic-3/",
   "/seminovos/bmw-x5-3-0-i6-turbo-hibrido-xdrive50e-m-sport-automatico/",
@@ -13,6 +17,12 @@
   "/seminovos/volvo-ex30-ex30-e40-core-eletrico/",
   "/seminovos/volvo-xc60-2-0-t8-recharge-ultra-awd-geartronic/"
  ],
- "lojas_permitidas": ["BMW Vila Leopoldina","BMW Alphaville","Denza","MINI","Land Rover"],
- "ultima_conferencia": "2026-11-18"
+ "lojas_permitidas": [
+  "BMW Vila Leopoldina",
+  "BMW Alphaville",
+  "Denza",
+  "MINI",
+  "Land Rover"
+ ],
+ "ultima_conferencia": "2026-11-19"
 }
