@@ -15,7 +15,15 @@
   "/seminovos/land-rover-discovery-3-0-d350-turbo-diesel-mhev-metropolitan-edition-automatico-2/",
   "/seminovos/bmw-x5-3-0-i6-turbo-hibrido-xdrive50e-m-sport-automatico-3/",
   "/seminovos/volvo-ex30-ex30-e40-core-eletrico/",
-  "/seminovos/volvo-xc60-2-0-t8-recharge-ultra-awd-geartronic/"
+  "/seminovos/volvo-xc60-2-0-t8-recharge-ultra-awd-geartronic/",
+  "/seminovos/volvo-xc90-2-0-t8-recharge-ultra-dark-awd-geartronic/",
+  "/seminovos/audi-a5-2-0-tfsi-gasolina-performance-s-edition-quattro-s-tronic/",
+  "/seminovos/porsche-911-911-carrera-coupe-3-0-991-992/",
+  "/seminovos/mercedes-benz-eqb-250-665-kw-eletrico/",
+  "/seminovos/ferrari-296-gts-3-0-v6-turbo-phev-f1-dct/",
+  "/seminovos/mercedes-benz-c200-1-5-eq-boost-hibrido-amg-line-9g-tronic/",
+  "/seminovos/audi-a4-2-0-tfsi-mhev-s-line-quattro-s-tronic/",
+  "/seminovos/ferrari-296-gtb-3-0-v6-turbo-phev-f1-dct/"
  ],
  "lojas_permitidas": [
   "BMW Vila Leopoldina",
@@ -24,5 +32,5 @@
   "MINI",
   "Land Rover"
  ],
- "ultima_conferencia": "2026-11-19"
+ "ultima_conferencia": "2026-11-20"
 }
