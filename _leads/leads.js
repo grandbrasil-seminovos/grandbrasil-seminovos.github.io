@@ -2,7 +2,7 @@
    Ao clicar em "Quero esse", pede nome e WhatsApp antes de abrir a conversa e grava na planilha
    "Leads do site – Seminovos e 0km". Também conta acessos e cliques (aba Acessos). */
 (function(){
-  var URL_LEADS = "__ENDPOINT__";
+  var URL_LEADS = "https://script.google.com/macros/s/AKfycbx6OdkygIjYsNgYK2AWgo6wuD80W4P6h9KdAv55JOXOzbBIjTZI2lPd_ayFkNGJQ5ig_w/exec";
   try{ if(new URLSearchParams(location.search).get("disparo")) return; }catch(_){}
   if(!/^https:/.test(URL_LEADS)) return;
   function txt(el){ return el ? el.textContent.replace(/\s+/g," ").trim() : ""; }
