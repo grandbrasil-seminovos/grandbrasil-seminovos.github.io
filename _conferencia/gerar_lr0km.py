@@ -94,6 +94,7 @@ for v in VEND:
   </div>
 </footer>
 <a class="fab" href="{w(f"Olá {v['primeiro']}! Vi o catálogo Land Rover 0km e quero saber mais.")}" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><svg><use href="#i-wa"/></svg><span class="lbl">Fale comigo</span></a>
+<script src="https://grandbrasil-seminovos.github.io/_leads/leads.js" defer></script>
 </body>
 </html>
 '''
