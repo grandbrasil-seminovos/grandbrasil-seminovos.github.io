@@ -1,36 +1,36 @@
 {
- "manter": [
-  "rrp550",
-  "i320cz25",
-  "hrv"
- ],
- "ignorar_anuncios": [
-  "/seminovos/bmw-x1-2-0-16v-turbo-gasolina-sdrive20i-m-sport-steptronic-3/",
-  "/seminovos/bmw-x5-3-0-i6-turbo-hibrido-xdrive50e-m-sport-automatico/",
-  "/seminovos/land-rover-range-rover-velar-2-0-p400e-phev-r-dynamic-hse-automatico/",
-  "/seminovos/land-rover-discovery-sport-2-0-d200-turbo-diesel-r-dynamic-se-automatico/",
-  "/seminovos/land-rover-discovery-3-0-d350-turbo-diesel-mhev-metropolitan-edition-automatico-3/",
-  "/seminovos/bmw-x3-2-0-16v-gasolina-x-line-xdrive20i-steptronic/",
-  "/seminovos/bmw-320i-2-0-sport-16v-turbo-active-flex-4p-automatico/",
-  "/seminovos/land-rover-discovery-3-0-d350-turbo-diesel-mhev-metropolitan-edition-automatico-2/",
-  "/seminovos/bmw-x5-3-0-i6-turbo-hibrido-xdrive50e-m-sport-automatico-3/",
-  "/seminovos/volvo-ex30-ex30-e40-core-eletrico/",
-  "/seminovos/volvo-xc60-2-0-t8-recharge-ultra-awd-geartronic/",
-  "/seminovos/volvo-xc90-2-0-t8-recharge-ultra-dark-awd-geartronic/",
-  "/seminovos/audi-a5-2-0-tfsi-gasolina-performance-s-edition-quattro-s-tronic/",
-  "/seminovos/porsche-911-911-carrera-coupe-3-0-991-992/",
-  "/seminovos/mercedes-benz-eqb-250-665-kw-eletrico/",
-  "/seminovos/ferrari-296-gts-3-0-v6-turbo-phev-f1-dct/",
-  "/seminovos/mercedes-benz-c200-1-5-eq-boost-hibrido-amg-line-9g-tronic/",
-  "/seminovos/audi-a4-2-0-tfsi-mhev-s-line-quattro-s-tronic/",
-  "/seminovos/ferrari-296-gtb-3-0-v6-turbo-phev-f1-dct/"
- ],
- "lojas_permitidas": [
-  "BMW Vila Leopoldina",
-  "BMW Alphaville",
-  "Denza",
-  "MINI",
-  "Land Rover"
- ],
- "ultima_conferencia": "2026-11-24"
+  "manter": [
+    "rrp550",
+    "i320cz25",
+    "hrv"
+  ],
+  "ignorar_anuncios": [
+    "/seminovos/bmw-x1-2-0-16v-turbo-gasolina-sdrive20i-m-sport-steptronic-3/",
+    "/seminovos/bmw-x5-3-0-i6-turbo-hibrido-xdrive50e-m-sport-automatico/",
+    "/seminovos/land-rover-range-rover-velar-2-0-p400e-phev-r-dynamic-hse-automatico/",
+    "/seminovos/land-rover-discovery-sport-2-0-d200-turbo-diesel-r-dynamic-se-automatico/",
+    "/seminovos/land-rover-discovery-3-0-d350-turbo-diesel-mhev-metropolitan-edition-automatico-3/",
+    "/seminovos/bmw-x3-2-0-16v-gasolina-x-line-xdrive20i-steptronic/",
+    "/seminovos/bmw-320i-2-0-sport-16v-turbo-active-flex-4p-automatico/",
+    "/seminovos/land-rover-discovery-3-0-d350-turbo-diesel-mhev-metropolitan-edition-automatico-2/",
+    "/seminovos/bmw-x5-3-0-i6-turbo-hibrido-xdrive50e-m-sport-automatico-3/",
+    "/seminovos/volvo-ex30-ex30-e40-core-eletrico/",
+    "/seminovos/volvo-xc60-2-0-t8-recharge-ultra-awd-geartronic/",
+    "/seminovos/volvo-xc90-2-0-t8-recharge-ultra-dark-awd-geartronic/",
+    "/seminovos/audi-a5-2-0-tfsi-gasolina-performance-s-edition-quattro-s-tronic/",
+    "/seminovos/porsche-911-911-carrera-coupe-3-0-991-992/",
+    "/seminovos/mercedes-benz-eqb-250-665-kw-eletrico/",
+    "/seminovos/ferrari-296-gts-3-0-v6-turbo-phev-f1-dct/",
+    "/seminovos/mercedes-benz-c200-1-5-eq-boost-hibrido-amg-line-9g-tronic/",
+    "/seminovos/audi-a4-2-0-tfsi-mhev-s-line-quattro-s-tronic/",
+    "/seminovos/ferrari-296-gtb-3-0-v6-turbo-phev-f1-dct/"
+  ],
+  "lojas_permitidas": [
+    "BMW Vila Leopoldina",
+    "BMW Alphaville",
+    "Denza",
+    "MINI",
+    "Land Rover"
+  ],
+  "ultima_conferencia": "2026-11-25"
 }
