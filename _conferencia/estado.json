@@ -23,7 +23,8 @@
     "/seminovos/ferrari-296-gts-3-0-v6-turbo-phev-f1-dct/",
     "/seminovos/mercedes-benz-c200-1-5-eq-boost-hibrido-amg-line-9g-tronic/",
     "/seminovos/audi-a4-2-0-tfsi-mhev-s-line-quattro-s-tronic/",
-    "/seminovos/ferrari-296-gtb-3-0-v6-turbo-phev-f1-dct/"
+    "/seminovos/ferrari-296-gtb-3-0-v6-turbo-phev-f1-dct/",
+    "/seminovos/volvo-xc90-2-0-t8-ultimate-dark-awd-hibrido/"
   ],
   "lojas_permitidas": [
     "BMW Vila Leopoldina",
@@ -32,5 +33,5 @@
     "MINI",
     "Land Rover"
   ],
-  "ultima_conferencia": "2026-11-25"
+  "ultima_conferencia": "2026-11-26"
 }
